@@ -1,0 +1,51 @@
+<div class="fixed top-0 left-0 right-0 z-50 bg-[#130f40] text-gray-300 px-5 lg:px-20">
+
+    <div class="h-16 flex items-center justify-between">
+        <div class="flex items-center">
+            <div class="mr-5 ">
+                <p class="w-8">logo</p>
+            </div>
+            <div class="">
+                <div class="flex space-x-4">
+                    <a routerLink="/" class="text-gray-300">
+                        Shop by JPkalala
+                    </a>
+                    <div>
+                        <button class="open-button" (click)="openNavbarContent('men')" mat-button>Men</button>
+                    </div>
+                    <div>
+                        <button class="open-button" (click)="openNavbarContent('women')" mat-button>women</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center">
+            <button (click)="navigateTo('cart')" mat-icon-button>
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+
+            <button *ngIf="true" mat-raised-button type="" color="accent">
+                LOGIN
+            </button>
+            <div *ngIf="false" class="ml-3 flex items-center">
+                <div class="flex items-center space-x-5">
+                    <span class="font-bold text-lg">Kalala</span>
+                    <button mat-button [matMenuTriggerFor]="profileMenu">
+                        <img class="h-8 w-8" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" alt="">
+                    </button>
+                    <mat-menu #profileMenu="matMenu">
+                        <button mat-menu-item>Orders</button>
+                        <button mat-menu-item>Profil</button>
+                        <button mat-menu-item>Logout</button>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="isNavbarContentOpen" class="modal-container">   
+    <app-nav-content selectedSection="selectedSection" />
+</div>
